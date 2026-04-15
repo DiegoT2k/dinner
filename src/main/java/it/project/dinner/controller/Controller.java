@@ -11,7 +11,7 @@ import java.util.List;
 @RequestMapping(path = "/dinner")
 @CrossOrigin(origins = {
         "http://localhost:3000",
-        "https://fe-dinner-hhwwhdctp-diegot2ks-projects.vercel.app"
+        "https://fe-dinner-swart.vercel.app"
 })
 public class Controller {
 
