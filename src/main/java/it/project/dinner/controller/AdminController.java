@@ -9,7 +9,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "/dinner/admin")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = {
+        "http://localhost:3000",
+        "https://fe-dinner-hhwwhdctp-diegot2ks-projects.vercel.app"
+})
 public class AdminController {
 
     @Autowired
