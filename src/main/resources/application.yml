@@ -2,10 +2,13 @@ spring:
   application:
     name: dinner
   datasource:
-    url: jdbc:postgresql://localhost:5432/dbdinner
-    username: postgres
-    password: admin
+    url: jdbc:postgresql://dpg-d7fmtepj2pic73a1ulag-a.oregon-postgres.render.com:5432/dbdinner
+    username: dbdinner_user
+    password: fhM1EaAtbG4wGuSox4O9DNarhhejNLte
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
+server:
+  port: 8080
+  address: 0.0.0.0
