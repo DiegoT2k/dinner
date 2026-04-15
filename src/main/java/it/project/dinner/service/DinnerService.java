@@ -11,4 +11,9 @@ public interface DinnerService {
     List<DinnerDTO> getAllDinner();
 
     void insertDinner(DinnerDTO dinner);
+
+    void deleteDinner(Long id);
+
+    void updateDinner(DinnerDTO dinner, Long id);
+
 }

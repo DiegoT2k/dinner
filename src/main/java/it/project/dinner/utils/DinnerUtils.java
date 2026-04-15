@@ -7,7 +7,7 @@ public class DinnerUtils {
 
     public static final DinnerDTO convertDinnerToDinnerDTO(Dinner dinner){
 
-        return new DinnerDTO(dinner.getDate(), dinner.getName());
+        return new DinnerDTO(dinner.getId(), dinner.getDate(), dinner.getName());
 
     }
 }

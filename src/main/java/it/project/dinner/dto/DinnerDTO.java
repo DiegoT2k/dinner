@@ -11,6 +11,7 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 public class DinnerDTO {
 
+    private Long id;
     private Timestamp date;
     private String name;
 

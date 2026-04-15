@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DinnerServiceImpl implements DinnerService {
@@ -38,5 +39,26 @@ public class DinnerServiceImpl implements DinnerService {
 
         dinnerRepository.save(d);
     }
+
+    @Override
+    public void deleteDinner(Long id) {
+
+        dinnerRepository.deleteById(id);
+
+    }
+
+    @Override
+    public void updateDinner(DinnerDTO dinner, Long id) {
+
+        Optional<Dinner> d = dinnerRepository.findById(id);
+
+        if(d.isPresent()){
+            d.get().setName(dinner.getName());
+            d.get().setDate(dinner.getDate());
+            dinnerRepository.save(d.get());
+        }
+
+    }
+
 
 }

@@ -22,12 +22,4 @@ public class Controller {
 
     }
 
-    @PostMapping(path = "/createDinner")
-    public boolean insertDinner(@RequestBody DinnerDTO dinner){
-
-        dinnerService.insertDinner(dinner);
-        return true;
-    }
-
-
 }
