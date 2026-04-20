@@ -8,6 +8,7 @@ import it.project.dinner.utils.DinnerUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -18,17 +19,20 @@ public class DinnerServiceImpl implements DinnerService {
     @Autowired
     DinnerRepository dinnerRepository;
 
-    @Override
     public List<DinnerDTO> getAllDinner() {
-
-        List<Dinner> dinner = dinnerRepository.findAll();
-        List<DinnerDTO> dinners = new ArrayList<>();
-
-        for(Dinner d : dinner)
-            dinners.add(DinnerUtils.convertDinnerToDinnerDTO(d));
-
-        return dinners;
+        return dinnerRepository.findAll().stream()
+                .map(DinnerUtils::convertDinnerToDinnerDTO)
+                .toList();
     }
+
+    public DinnerDTO getNextDinner() {
+        Dinner next = dinnerRepository
+                .findFirstByDateAfterOrderByDateAsc(LocalDateTime.now())
+                .orElse(null);
+
+        return next == null ? null : DinnerUtils.convertDinnerToDinnerDTO(next);
+    }
+
 
     @Override
     public void insertDinner(DinnerDTO dinner) {

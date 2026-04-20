@@ -4,18 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Timestamp;
-import java.util.List;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class DinnerDTO {
-
+public class DessertDTO {
     private Long id;
-    private Timestamp date;
     private String name;
-
-    private DessertDTO dessert;
-    private List<AttendanceDTO> attendees;
+    private String madeBy;
 }
+
